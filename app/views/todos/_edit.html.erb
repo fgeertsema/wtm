@@ -1,0 +1,20 @@
+<% form_for(todo) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.label :notes %><br />
+    <%= f.text_area :notes, :cols => 40, :rows => 3%>
+  </p>
+
+  <p>
+    <%= f.label :due %><br />
+    <%= f.date_select :due %>
+  </p>
+  <p>
+    <%= f.submit "Add" %>
+  </p>
+<% end %>

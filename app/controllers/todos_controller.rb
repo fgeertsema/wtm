@@ -2,12 +2,8 @@ class TodosController < ApplicationController
   # GET /todos
   # GET /todos.xml
   def index
+    @todo = Todo.new
     @todos = Todo.find(:all)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @todos }
-    end
   end
 
   # GET /todos/1
@@ -17,17 +13,6 @@ class TodosController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @todo }
-    end
-  end
-
-  # GET /todos/new
-  # GET /todos/new.xml
-  def new
-    @todo = Todo.new
-
-    respond_to do |format|
-      format.html # new.html.erb
       format.xml  { render :xml => @todo }
     end
   end
@@ -42,16 +27,11 @@ class TodosController < ApplicationController
   def create
     @todo = Todo.new(params[:todo])
 
-    respond_to do |format|
       if @todo.save
         flash[:notice] = 'Todo was successfully created.'
-        format.html { redirect_to(@todo) }
-        format.xml  { render :xml => @todo, :status => :created, :location => @todo }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @todo.errors, :status => :unprocessable_entity }
+         redirect_to(todos_path)
       end
-    end
+    
   end
 
   # PUT /todos/1
