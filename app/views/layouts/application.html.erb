@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>WePlayRails : ToDo Management</title>
+  <%= stylesheet_link_tag 'reset-fonts-grids' %>
+  <%= stylesheet_link_tag 'screen' %>
+</head>
+<body>
+<div id="doc">
+	<div id="hd">
+		<h1><a href="#">WePlayRails Todo Management</a></h1>
+	</div>
+	<div id="bd">
+		<p style="color: green"><%= flash[:notice] %></p>
+
+		<%= yield  %>
+	</div>
+	<div id="ft">
+		<p>Copyright &copy; <%= Date.today.year %> F. Geerstema &amp; I. Malijkh</p>
+	</div>
+</div>
+</body>
+</html>
